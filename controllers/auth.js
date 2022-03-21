@@ -5,11 +5,11 @@ dotenv.config({path: './.env'});
 
 
 const db = mysql.createConnection({
-    host: 127.0.0.1,
-    port: 3307,
-    user: newuser,
-    password: password,
-    database: sampleapp
+    host: process.env.DATABASE_HOST,
+    port: process.env.DATABASE_PORT,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE
 });
 
 //CREATE USER i.e. Register
