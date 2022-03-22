@@ -3,8 +3,6 @@ const mysql = require('mysql');
 const app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-const dotenv = require('dotenv');
-dotenv.config({path: './.env'});
 let players = [];
 
 //Create db connection
