@@ -81,9 +81,11 @@ io.on('connection', function (socket)  {
 });
 
 
-//const PORT = process.env.PORT || 5001;
-//app.listen(PORT, console.log(`Server started on port ${PORT}`));
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, console.log(`Server started on port ${PORT}`));
 
+/*
 server.listen(5001, () => {
     console.log(`Listening on ${server.address().port}`);
 });
+*/
