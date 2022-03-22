@@ -1,6 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
+const PORT = process.env.PORT || 5001;
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 const dotenv = require('dotenv');
@@ -81,11 +82,7 @@ io.on('connection', function (socket)  {
 });
 
 
-const PORT = process.env.PORT || 5001;
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
-
-/*
-server.listen(5001, () => {
+server.listen(PORT, () => {
     console.log(`Listening on ${server.address().port}`);
 });
-*/
+
