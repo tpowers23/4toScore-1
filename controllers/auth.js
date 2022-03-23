@@ -11,6 +11,13 @@ const db = mysql.createConnection({
     database: 'heroku_14a186278551e7b'
 });
 
+db.connect((err) => {
+    if (err) {
+        throw err;
+    }
+    console.log('MySql connected..');
+})
+
 //CREATE USER i.e. Register
 exports.register = async (req, res) => {
     const { fname, lname, email, username, password, passwordConfirm } = req.body;
