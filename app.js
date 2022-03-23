@@ -9,20 +9,32 @@ dotenv.config({path: './.env'});
 let players = [];
 
 //Create db connection
-const db = mysql.createConnection({
-    host: 'us-cdbr-east-05.cleardb.net',
-    user: 'ba9e9a435785aa',
-    password: '3baf3826',
-    database: 'heroku_14a186278551e7b'
-});
+// const db = mysql.createConnection({
+//     host: 'us-cdbr-east-05.cleardb.net',
+//     user: 'ba9e9a435785aa',
+//     password: '3baf3826',
+//     database: 'heroku_14a186278551e7b'
+// });
 
-//Connect
-db.connect((err) => {
-    if (err) {
-        throw err;
-    }
-    console.log('MySql connected..');
-})
+var connection;
+
+function connectDb(){
+    connection = mysql.createConnection({
+        host: 'us-cdbr-east-05.cleardb.net',
+        user: 'ba9e9a435785aa',
+        password: '3baf3826',
+        database: 'heroku_14a186278551e7b'
+    });
+    connection.on('error', connectDb());
+}
+
+// //Connect
+// db.connect((err) => {
+//     if (err) {
+//         throw err;
+//     }
+//     console.log('MySql connected..');
+// })
 
 // EJS
 app.set('view engine', 'ejs');
