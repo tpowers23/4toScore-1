@@ -4,19 +4,24 @@ const dotenv = require('dotenv');
 dotenv.config({path: './.env'});
 
 
-const db = mysql.createConnection({
-    host: 'us-cdbr-east-05.cleardb.net',
-    user: 'ba9e9a435785aa',
-    password: '3baf3826',
-    database: 'heroku_14a186278551e7b'
-});
+// const db = mysql.createConnection({
+//     host: 'us-cdbr-east-05.cleardb.net',
+//     user: 'ba9e9a435785aa',
+//     password: '3baf3826',
+//     database: 'heroku_14a186278551e7b'
+// });
 
-db.connect((err) => {
-    if (err) {
-        throw err;
-    }
-    console.log('MySql connected..');
-})
+var connection;
+
+function connectDb(){
+    connection = mysql.createConnection({
+        host: 'us-cdbr-east-05.cleardb.net',
+        user: 'ba9e9a435785aa',
+        password: '3baf3826',
+        database: 'heroku_14a186278551e7b'
+    });
+    connection.on('error', connectDb());
+}
 
 //CREATE USER i.e. Register
 exports.register = async (req, res) => {
