@@ -64,8 +64,8 @@ io.on('connection', async (socket) =>  {
 
 	console.log('A user connected:' + socket.id);
 	//get url
-	let path1 = window.location.pathname;
-	console.log(path1);
+	//let path1 = window.location.pathname;
+	//console.log(path1);
     // if there are no rooms available to join
     // IF (current URL points to /unranked)
         if (openRooms.length < 1){
