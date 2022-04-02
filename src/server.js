@@ -15,8 +15,8 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
 //get url
-let path1 = window.location.pathname;
-console.log(path1);
+//let path1 = window.location.pathname;
+//console.log(path1);
 
 // create variables and object for rooms
 let players = [];
